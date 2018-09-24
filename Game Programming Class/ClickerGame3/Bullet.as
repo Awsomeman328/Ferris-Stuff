@@ -3,18 +3,19 @@
 	import flash.display.MovieClip;
 	
 	
-	public class Bullet extends MovieClip {
+	public class Bullet extends Updatable {
 		
-		private const SPEED:Number = 10;
+		public const SPEED:Number = 10;
 		
-		private var vX:Number = 0;
-		private var vY:Number = -10;
-		
-		public var isDead:Boolean = false;
 		public var radius:Number = 10;
 		
-		public function Bullet(p:Player) {
+		public var wasKilled:Boolean = false;
+		
+		public function Bullet(p:Player, n:int) {
 			// constructor code
+			gotoAndStop(n);
+			
+			vY = -10;
 			x = p.x;
 			y = p.y;
 			
@@ -26,12 +27,14 @@
 			// TODO: set vX & vY
 		}
 		
-		public function update():void {
+		override public function update():void {
 			x += vX;
 			y += vY;
 			
 			if(!stage || y < -20 || y > stage.stageHeight + 20 || x < -20 || x > stage.stageWidth + 20) isDead = true;
+			if(wasKilled){
+				isDead = true;
+			}
 		}
 	}
-	
 }
