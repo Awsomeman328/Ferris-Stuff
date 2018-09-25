@@ -3,6 +3,9 @@
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
 	
+	/**
+	 * This is the controller class for the Updatable class This class is intended for use with a gameLoop and update functions.
+	 */
 	public class Updatable extends MovieClip {
 		
 		/** If this is true, the object is flagged to be destroyed!! */
@@ -20,13 +23,13 @@
 		public function Updatable() {
 			// constructor code
 
-		}// ends constructor
+		} // end constructor
 		
 		/**
 		 * This function is called every frame. 
 		 */
 		public function update():void {
 			
-		}// ends update
-	}// ends class Updatable
-}// ends package
+		}// end update
+	} // end class Updatable
+} // end package
